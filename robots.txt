@@ -1,0 +1,7 @@
+# robots.txt — Costantini & Gallotti
+# PENDIENTE: reemplazar el dominio por el definitivo.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://costantiniygallotti.com/sitemap.xml

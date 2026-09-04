@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="es">
+<!--
+  =============================================================================
+  Costantini & Gallotti — Consultoría de procesos para PyMEs
+  -----------------------------------------------------------------------------
+  ARQUETIPO ELEGIDO: 05 — Mouse-Reactive Gradient (adaptado)
+
+  Por qué este y no otro:
+  · El brief es una consultora técnica de automatización para PyMEs. El
+    arquetipo 05 está pensado para "tech startups, dev tools, agencias
+    independientes": fondo oscuro, tipografía masiva, UN solo acento y
+    composición dirigida por texto, no por fotografía. Encaja con la
+    referencia de tono (tcoautomations) sin clonarla.
+  · Se descartó el 02 (Editorial Dark Warm): su ADN es hostelería —serif
+    itálica Fraunces, glifo cultural, terracota— y leería como restaurante.
+  · Se descartó el 04 (Glassmorphism Modern): prohíbe fondos oscuros y usa
+    pasteles melocotón/lavanda, que chocan con el tono B2B serio y con el
+    "avoid: AI purple/pink gradients" del sistema de diseño generado.
+  · Ventaja lateral: al ser un arquetipo dirigido por tipografía, no necesita
+    stock photos de "gente sonriendo en oficina" — que el brief prohíbe.
+
+  ADAPTACIÓN al MASTER.md (design-system/costantini-y-gallotti/MASTER.md),
+  según reference/06-diversity-guardrails.md §3 (no clonar el arquetipo):
+  · Paleta: se conserva la FAMILIA de color del MASTER (navy #0F172A +
+    acento azul #0369A1) pero invertida a modo oscuro, según la segunda
+    búsqueda de estilo (dark-mode-oled + minimalism-swiss). Los degradados
+    neón verde/rosa/violeta del arquetipo se reemplazan por azul técnico.
+  · Tipografía: Plus Jakarta Sans tal como manda el MASTER (no GT Sectra),
+    con JetBrains Mono solo para etiquetas técnicas pequeñas.
+  · Espaciado y sombras: tokens del MASTER (density 4/10).
+
+  EFECTO FIRMA (uno solo): el degradado que reacciona al cursor.
+  El resto —diagrama de nodos, reveals, subrayados— lo acompaña.
+  =============================================================================
+-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Consultoría de procesos para PyMEs | Costantini &amp; Gallotti</title>
+  <meta name="description" content="Automatizamos tareas manuales en PyMEs. Primero relevamos tu operación, después construimos: menos carga doble de datos, menos horas perdidas.">
+
+  <!-- PENDIENTE: reemplazar el dominio por el definitivo en canonical, og:url y sitemap.xml -->
+  <link rel="canonical" href="https://costantiniygallotti.com/">
+
+  <meta name="author" content="Costantini &amp; Gallotti">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#070B11">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_AR">
+  <meta property="og:site_name" content="Costantini &amp; Gallotti">
+  <meta property="og:url" content="https://costantiniygallotti.com/">
+  <meta property="og:title" content="Consultoría de procesos para PyMEs | Costantini &amp; Gallotti">
+  <meta property="og:description" content="Automatizamos tareas manuales en PyMEs. Primero relevamos tu operación, después construimos: menos carga doble de datos, menos horas perdidas.">
+  <meta property="og:image" content="https://costantiniygallotti.com/assets/img/og-costantini-gallotti.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Costantini &amp; Gallotti — consultoría de procesos para PyMEs">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Consultoría de procesos para PyMEs | Costantini &amp; Gallotti">
+  <meta name="twitter:description" content="Automatizamos tareas manuales en PyMEs. Primero relevamos tu operación, después construimos.">
+  <meta name="twitter:image" content="https://costantiniygallotti.com/assets/img/og-costantini-gallotti.webp">
+  <meta name="twitter:image:alt" content="Costantini &amp; Gallotti — consultoría de procesos para PyMEs">
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap">
+
+  <link rel="stylesheet" href="styles.css?v=20260904">
+
+  <!-- Datos estructurados — schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Costantini & Gallotti — Consultoría de Procesos",
+    "alternateName": "C&G Consultoría de Procesos",
+    "description": "Consultoría de procesos para PyMEs: relevamiento de la operación, automatización de tareas repetitivas, seguimiento y reportes, y desarrollo de webs y herramientas a medida.",
+    "url": "https://costantiniygallotti.com/",
+    "image": "https://costantiniygallotti.com/assets/img/og-costantini-gallotti.webp",
+    "areaServed": { "@type": "Country", "name": "Argentina" },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Buenos Aires",
+      "addressCountry": "AR"
+    },
+    "email": "cygprocesos@gmail.com",
+    "telephone": "+5491140294276",
+    "knowsLanguage": "es",
+    "founder": [
+      { "@type": "Person", "name": "Tomás Costantini Orrego", "jobTitle": "Implementación técnica" },
+      { "@type": "Person", "name": "Francisco Joaquín Gallotti", "jobTitle": "Análisis de negocio" }
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Servicios",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Automatización de procesos" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Relevamiento y diagnóstico de procesos" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Seguimiento y reportes automáticos" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Desarrollo de páginas web y herramientas a medida" } }
+      ]
+    }
+  }
+  </script>
+</head>
+
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <!-- Degradado reactivo al cursor — efecto firma. Decorativo. -->
+  <div class="bg-gradient" data-mouse-gradient aria-hidden="true"></div>
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="site-header" data-header>
+    <div class="wrap header-inner">
+      <a class="logo" href="#inicio" aria-label="Costantini y Gallotti — ir al inicio">
+        <span class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+            <circle cx="7" cy="9" r="3"></circle>
+            <circle cx="7" cy="23" r="3"></circle>
+            <circle cx="25" cy="16" r="3"></circle>
+            <path d="M10 10.5 22 15M10 21.5 22 17"></path>
+          </svg>
+        </span>
+        <span class="logo-text">
+          <strong>C&amp;G</strong>
+          <span class="logo-sub">Consultoría de procesos</span>
+        </span>
+      </a>
+
+      <nav class="nav" id="nav-principal" aria-label="Navegación principal">
+        <ul class="nav-list">
+          <li><a href="#servicios">Qué hacemos</a></li>
+          <li><a href="#proyectos">Proyectos</a></li>
+          <li><a href="#nosotros">Quiénes somos</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <a class="btn btn-primary btn-nav" href="#contacto">Agendar un diagnóstico</a>
+
+      <button class="nav-toggle" type="button" data-nav-toggle
+              aria-expanded="false" aria-controls="nav-principal" aria-label="Abrir menú">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="contenido">
+
+    <!-- ===================== HERO ===================== -->
+    <section class="hero" id="inicio">
+      <div class="wrap hero-inner">
+
+        <div class="hero-copy">
+          <p class="eyebrow">Consultoría de procesos · PyMEs · Argentina</p>
+
+          <h1 class="hero-title">
+            Entendemos tu operación<br>
+            antes de <em>automatizarla</em>.
+          </h1>
+
+          <p class="hero-sub">
+            Miramos dónde se carga la misma información dos veces, qué se sigue haciendo a mano
+            por costumbre y cuántas horas por semana se van en eso — y recién después construimos.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary btn-lg" href="#contacto">Contanos tu proceso</a>
+            <a class="btn btn-ghost btn-lg" href="#proyectos">Ver proyectos</a>
+          </div>
+
+          <ul class="hero-meta">
+            <li><span class="dot" aria-hidden="true"></span>Buenos Aires, Argentina</li>
+            <li>Administración (UBA) · Negocios Digitales (UdeSA)</li>
+            <li>n8n, Google Sheets, Gmail, WhatsApp y +400 integraciones</li>
+          </ul>
+        </div>
+
+        <!-- Motivo de automatización: flujo de nodos. Decorativo; la leyenda de
+             abajo explica la idea en texto para quien no ve el gráfico. -->
+        <div class="hero-figure">
+          <svg class="flow" viewBox="0 0 420 360" aria-hidden="true" focusable="false">
+            <g class="flow-wires" fill="none" stroke-width="1.5" stroke-linecap="round">
+              <path class="wire" d="M104 66 C168 66 168 180 210 180"></path>
+              <path class="wire" d="M104 180 C158 180 168 180 210 180"></path>
+              <path class="wire" d="M104 294 C168 294 168 180 210 180"></path>
+              <path class="wire" d="M266 180 C312 180 312 96 344 96"></path>
+              <path class="wire" d="M266 180 C312 180 312 264 344 264"></path>
+            </g>
+
+            <g class="flow-pulses">
+              <circle class="pulse" r="3.5"><animateMotion dur="3.2s" repeatCount="indefinite" path="M104 66 C168 66 168 180 210 180"></animateMotion></circle>
+              <circle class="pulse" r="3.5"><animateMotion dur="3.2s" begin="1.05s" repeatCount="indefinite" path="M104 180 C158 180 168 180 210 180"></animateMotion></circle>
+              <circle class="pulse" r="3.5"><animateMotion dur="3.2s" begin="2.1s" repeatCount="indefinite" path="M104 294 C168 294 168 180 210 180"></animateMotion></circle>
+              <circle class="pulse pulse-out" r="3.5"><animateMotion dur="2.6s" begin="1.6s" repeatCount="indefinite" path="M266 180 C312 180 312 96 344 96"></animateMotion></circle>
+              <circle class="pulse pulse-out" r="3.5"><animateMotion dur="2.6s" begin="0.4s" repeatCount="indefinite" path="M266 180 C312 180 312 264 344 264"></animateMotion></circle>
+            </g>
+
+            <g class="flow-node flow-node-in">
+              <rect x="16" y="48" width="88" height="36" rx="10"></rect>
+              <text x="60" y="71">Formulario</text>
+            </g>
+            <g class="flow-node flow-node-in">
+              <rect x="16" y="162" width="88" height="36" rx="10"></rect>
+              <text x="60" y="185">Email</text>
+            </g>
+            <g class="flow-node flow-node-in">
+              <rect x="16" y="276" width="88" height="36" rx="10"></rect>
+              <text x="60" y="299">Planilla</text>
+            </g>
+
+            <g class="flow-core">
+              <rect x="210" y="150" width="56" height="60" rx="14"></rect>
+              <path d="M231 168 h14 M231 180 h14 M231 192 h8"></path>
+            </g>
+
+            <g class="flow-node flow-node-out">
+              <rect x="344" y="78" width="60" height="36" rx="10"></rect>
+              <text x="374" y="101">Aviso</text>
+            </g>
+            <g class="flow-node flow-node-out">
+              <rect x="344" y="246" width="60" height="36" rx="10"></rect>
+              <text x="374" y="269">Registro</text>
+            </g>
+          </svg>
+
+          <p class="flow-caption">
+            <span class="mono">flujo</span>
+            Entradas dispersas → una sola regla → salidas consistentes.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===================== QUÉ HACEMOS ===================== -->
+    <section class="section" id="servicios">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="eyebrow">Qué hacemos</p>
+          <h2 class="section-title">Cuatro frentes, un mismo criterio: que se use.</h2>
+        </div>
+
+        <div class="cards-grid">
+
+          <article class="card reveal">
+            <span class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="5" cy="6" r="2.2"></circle>
+                <circle cx="5" cy="18" r="2.2"></circle>
+                <circle cx="19" cy="12" r="2.2"></circle>
+                <path d="M7.2 6.8 16.9 11.2M7.2 17.2 16.9 12.8"></path>
+              </svg>
+            </span>
+            <h3 class="card-title">Automatización de procesos</h3>
+            <p class="card-text">
+              Las cargas, avisos y seguimientos dejan de pasar por manos.
+            </p>
+          </article>
+
+          <article class="card reveal">
+            <span class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="6.5"></circle>
+                <path d="M15.8 15.8 21 21M8.5 11h5M11 8.5v5"></path>
+              </svg>
+            </span>
+            <h3 class="card-title">Relevamiento y diagnóstico</h3>
+            <p class="card-text">
+              Mapeamos cómo trabajás hoy y qué conviene automatizar primero.
+            </p>
+          </article>
+
+          <article class="card reveal">
+            <span class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 20h18"></path>
+                <rect x="5" y="11" width="3.4" height="6" rx="1"></rect>
+                <rect x="10.3" y="7" width="3.4" height="10" rx="1"></rect>
+                <rect x="15.6" y="13" width="3.4" height="4" rx="1"></rect>
+              </svg>
+            </span>
+            <h3 class="card-title">Seguimiento y reportes</h3>
+            <p class="card-text">
+              Tableros que se arman solos, sin perseguir el estado de nada.
+            </p>
+          </article>
+
+          <article class="card reveal">
+            <span class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="15" rx="2.5"></rect>
+                <path d="M3 8.5h18M6.4 6.2h.01M8.9 6.2h.01"></path>
+                <path d="M9.5 15.2 11.8 12.9 9.5 10.6M14.5 10.6l2.3 2.3-2.3 2.3"></path>
+              </svg>
+            </span>
+            <h3 class="card-title">Webs y herramientas a medida</h3>
+            <p class="card-text">
+              Sitios y formularios integrados con los datos que ya tenés.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CÓMO TRABAJAMOS ===================== -->
+    <section class="section section-process" id="proceso">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="eyebrow">Cómo trabajamos</p>
+          <h2 class="section-title">Diagnóstico honesto primero. Después, lo mínimo que funciona.</h2>
+        </div>
+
+        <ol class="steps">
+          <li class="step reveal">
+            <span class="step-num mono" aria-hidden="true">01</span>
+            <h3 class="step-title">Miramos la operación por dentro</h3>
+            <p class="step-text">
+              Nos sentamos con quien hace el trabajo, no solo con quien lo dirige. Buscamos la
+              información que se carga dos veces y las tareas que sobreviven por costumbre.
+            </p>
+          </li>
+          <li class="step reveal">
+            <span class="step-num mono" aria-hidden="true">02</span>
+            <h3 class="step-title">Priorizamos por impacto real</h3>
+            <p class="step-text">
+              Te decimos qué automatizar primero y por qué, y también qué no vale la pena tocar.
+              Si algo no justifica el trabajo, lo decimos.
+            </p>
+          </li>
+          <li class="step reveal">
+            <span class="step-num mono" aria-hidden="true">03</span>
+            <h3 class="step-title">Entregamos algo chico que funciona</h3>
+            <p class="step-text">
+              Preferimos entregar poco y que se use, antes que prometer un sistema completo que
+              nadie termina adoptando. Después crecemos sobre lo que ya funciona.
+            </p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===================== PROYECTOS ===================== -->
+    <!--
+      Contenido extraído de https://tcoautomations.vercel.app/proyectos (web personal de
+      Tomás), adaptado a la primera persona del plural. No se inventaron casos.
+
+      IMPORTANTE: son MODELOS DE EJEMPLO construidos para mostrar cómo funciona cada tipo
+      de automatización, NO implementaciones hechas para un cliente. Por eso cada tarjeta
+      lleva la etiqueta "Ejemplo", el problema está redactado en presente genérico y en
+      ningún lado se nombra una empresa ni se declaran resultados obtenidos.
+    -->
+    <section class="section section-projects" id="proyectos">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="eyebrow">Proyectos</p>
+          <h2 class="section-title">Automatizaciones que ya tenemos armadas.</h2>
+          <p class="section-sub">
+            Son ejemplos construidos con n8n, no implementaciones hechas para un cliente.
+            Cada uno muestra cómo se resuelve un problema concreto de negocio; el mismo
+            esquema lo adaptamos a las herramientas y al circuito de tu operación.
+          </p>
+        </div>
+
+        <div class="projects">
+
+          <!-- Proyecto 1 -->
+          <article class="project reveal">
+            <div class="project-body">
+              <p class="project-meta">
+                <span class="project-cat mono">Atención al cliente</span>
+                <span class="project-badge mono">Ejemplo</span>
+              </p>
+              <h3 class="project-title">Respuestas de email automáticas con IA</h3>
+              <p class="project-text">
+                Cuando un cliente completa una encuesta de satisfacción, el sistema evalúa su
+                respuesta y usa Google Gemini AI para generar un email personalizado según su
+                feedback y su grupo etario.
+              </p>
+
+              <div class="project-block">
+                <h4 class="project-block-title">Qué problema resuelve</h4>
+                <ul class="project-list">
+                  <li>Cientos de encuestas respondidas a mano, una por una.</li>
+                  <li>Sin segmentación, todos reciben el mismo mensaje genérico.</li>
+                  <li>La falta de personalización baja la percepción de atención.</li>
+                </ul>
+              </div>
+
+              <div class="project-block">
+                <h4 class="project-block-title">Cómo lo resuelve</h4>
+                <ul class="project-list">
+                  <li>n8n lee cada nuevo feedback desde Google Sheets en tiempo real.</li>
+                  <li>Detecta si el cliente dejó una opinión escrita o solo completó campos.</li>
+                  <li>Con opinión escrita, Gemini AI redacta una respuesta personalizada; sin ella, un agradecimiento estándar.</li>
+                  <li>Segmenta por grupo etario (0-17, 18-30, 31-60, 60+) y aplica la plantilla con el tono adecuado a cada uno.</li>
+                </ul>
+              </div>
+
+              <ul class="tags">
+                <li class="tag">Google Sheets</li>
+                <li class="tag">Gmail</li>
+                <li class="tag">Google Gemini AI</li>
+                <li class="tag">n8n</li>
+              </ul>
+            </div>
+
+            <div class="project-media">
+              <!-- VIDEO PENDIENTE: reemplazar por el video real de la automatización "Respuestas de email automáticas con IA" -->
+              <div class="video-placeholder" role="img" aria-label="Video de la automatización Respuestas de email automáticas con IA — pendiente de carga">
+                <span class="vp-play" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round">
+                    <path d="M9 7.5 17 12l-8 4.5z"></path>
+                  </svg>
+                </span>
+                <span class="vp-text">Video próximamente</span>
+                <span class="vp-sub mono">demo del workflow en ejecución</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Proyecto 2 -->
+          <article class="project reveal">
+            <div class="project-body">
+              <p class="project-meta">
+                <span class="project-cat mono">Ventas y CRM</span>
+                <span class="project-badge mono">Ejemplo</span>
+              </p>
+              <h3 class="project-title">Captación y seguimiento automático de leads</h3>
+              <p class="project-text">
+                Cuando un potencial cliente completa el formulario de contacto, el sistema
+                registra el lead en Google Sheets, notifica al dueño por email y le envía un
+                WhatsApp automático para reservar su sesión gratuita.
+              </p>
+
+              <div class="project-block">
+                <h4 class="project-block-title">Qué problema resuelve</h4>
+                <ul class="project-list">
+                  <li>Se pierden leads por no tener un seguimiento estructurado.</li>
+                  <li>Cada formulario se procesa a mano.</li>
+                  <li>El tiempo de respuesta es inconsistente y baja la conversión.</li>
+                </ul>
+              </div>
+
+              <div class="project-block">
+                <h4 class="project-block-title">Cómo lo resuelve</h4>
+                <ul class="project-list">
+                  <li>n8n recibe el formulario de Tally al instante vía webhook.</li>
+                  <li>Limpia y mapea los datos del lead automáticamente.</li>
+                  <li>Los registra en un CRM de Google Sheets como «Pendiente de contacto».</li>
+                  <li>Notifica al dueño por email y manda un WhatsApp automático al lead con un CTA.</li>
+                  <li>Un dashboard en Sheets muestra el pipeline en tiempo real.</li>
+                </ul>
+              </div>
+
+              <ul class="tags">
+                <li class="tag">Tally</li>
+                <li class="tag">n8n Webhooks</li>
+                <li class="tag">Google Sheets</li>
+                <li class="tag">Gmail</li>
+                <li class="tag">Twilio WhatsApp</li>
+              </ul>
+            </div>
+
+            <div class="project-media">
+              <!-- VIDEO PENDIENTE: reemplazar por el video real de la automatización "Captación y seguimiento automático de leads" -->
+              <div class="video-placeholder" role="img" aria-label="Video de la automatización Captación y seguimiento automático de leads — pendiente de carga">
+                <span class="vp-play" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round">
+                    <path d="M9 7.5 17 12l-8 4.5z"></path>
+                  </svg>
+                </span>
+                <span class="vp-text">Video próximamente</span>
+                <span class="vp-sub mono">demo del workflow en ejecución</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Proyecto 3 -->
+          <article class="project reveal">
+            <div class="project-body">
+              <p class="project-meta">
+                <span class="project-cat mono">Reservas y agenda</span>
+                <span class="project-badge mono">Ejemplo</span>
+              </p>
+              <h3 class="project-title">Reserva de turnos por email con IA</h3>
+              <p class="project-text">
+                Los pacientes piden turno escribiendo un email normal, en sus propias palabras.
+                La IA interpreta el mensaje, el sistema verifica la disponibilidad real contra la
+                agenda y confirma —o pide los datos que falten— de forma totalmente automática.
+                Un segundo flujo envía recordatorios antes de cada turno.
+              </p>
+
+              <div class="project-block">
+                <h4 class="project-block-title">Qué problema resuelve</h4>
+                <ul class="project-list">
+                  <li>Cada pedido de turno se lee y se responde manualmente.</li>
+                  <li>Hay que cruzar a mano la agenda para ver qué horarios están libres.</li>
+                  <li>Riesgo de doble reserva al asignar el mismo turno dos veces.</li>
+                  <li>Turnos perdidos porque nadie recuerda avisarle al paciente.</li>
+                </ul>
+              </div>
+
+              <div class="project-block">
+                <h4 class="project-block-title">Cómo lo resuelve</h4>
+                <ul class="project-list">
+                  <li>El paciente escribe un email común; no hay formularios ni pasos rígidos.</li>
+                  <li>Gemini AI interpreta el mensaje y extrae nombre, fecha, hora y tratamiento.</li>
+                  <li>El código —no la IA— decide contra la agenda real: confirma, ofrece horarios libres o pide los datos que falten.</li>
+                  <li>Detecta y evita las dobles reservas excluyendo los turnos ya ocupados.</li>
+                  <li>Un segundo flujo envía recordatorios por email antes de cada turno.</li>
+                </ul>
+              </div>
+
+              <ul class="tags">
+                <li class="tag">Gmail</li>
+                <li class="tag">Google Sheets</li>
+                <li class="tag">Google Gemini AI</li>
+                <li class="tag">n8n</li>
+              </ul>
+            </div>
+
+            <div class="project-media">
+              <!-- VIDEO PENDIENTE: reemplazar por el video real de la automatización "Reserva de turnos por email con IA" -->
+              <div class="video-placeholder" role="img" aria-label="Video de la automatización Reserva de turnos por email con IA — pendiente de carga">
+                <span class="vp-play" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round">
+                    <path d="M9 7.5 17 12l-8 4.5z"></path>
+                  </svg>
+                </span>
+                <span class="vp-text">Video próximamente</span>
+                <span class="vp-sub mono">demo del workflow en ejecución</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== QUIÉNES SOMOS ===================== -->
+    <section class="section section-about" id="nosotros">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="eyebrow">Quiénes somos</p>
+          <h2 class="section-title">Dos personas, dos oficios complementarios.</h2>
+        </div>
+
+        <div class="about-layout">
+
+          <div class="founders">
+            <!-- FOTO PENDIENTE: reemplazar el placeholder por la foto real de Tomás
+                 (assets/img/tomas.webp) usando <img alt="Tomás Costantini Orrego"> -->
+            <article class="founder reveal">
+              <div class="founder-photo" role="img" aria-label="Foto de Tomás Costantini Orrego — pendiente de carga">
+                <span class="founder-initials mono" aria-hidden="true">TC</span>
+                <span class="founder-photo-note">Foto pendiente</span>
+              </div>
+              <h3 class="founder-name">Tomás Costantini Orrego</h3>
+              <p class="founder-role mono">Implementación técnica</p>
+              <p class="founder-detail">Automatizaciones, integraciones y desarrollo.</p>
+            </article>
+
+            <!-- FOTO PENDIENTE: reemplazar el placeholder por la foto real de Francisco
+                 (assets/img/francisco.webp) usando <img alt="Francisco Joaquín Gallotti"> -->
+            <article class="founder reveal">
+              <div class="founder-photo" role="img" aria-label="Foto de Francisco Joaquín Gallotti — pendiente de carga">
+                <span class="founder-initials mono" aria-hidden="true">FG</span>
+                <span class="founder-photo-note">Foto pendiente</span>
+              </div>
+              <h3 class="founder-name">Francisco Joaquín Gallotti</h3>
+              <p class="founder-role mono">Análisis de negocio</p>
+              <p class="founder-detail">Relevamiento, procesos y estrategia.</p>
+            </article>
+          </div>
+
+          <!-- Texto institucional — literal, no parafrasear ni recortar. -->
+          <blockquote class="about-statement reveal">
+            <p>
+              Somos Tomás Costantini Orrego y Francisco Joaquín Gallotti. Tomás se ocupa de la
+              implementación técnica mientras que Francisco del análisis del negocio; estudiamos
+              Administración en la UBA y Negocios Digitales en San Andrés. Trabajamos mirando la
+              operación por dentro antes de proponer nada: dónde se carga la misma información
+              dos veces, qué se sigue haciendo a mano porque siempre se hizo así, cuántas horas
+              por semana se van en eso. Recién después construimos algo. Preferimos entregar poco
+              y que funcione, antes que prometer un sistema completo que nadie termina usando.
+            </p>
+          </blockquote>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CONTACTO ===================== -->
+    <section class="section section-contact" id="contacto">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="eyebrow">Contacto</p>
+          <h2 class="section-title">Contanos qué proceso te gustaría sacarte de encima.</h2>
+          <p class="section-sub">
+            Una charla de 30 minutos, sin compromiso. Miramos tu situación, vemos si tiene sentido
+            automatizarla y te decimos con franqueza qué haríamos primero.
+          </p>
+        </div>
+
+        <div class="contact-layout">
+
+          <form class="form reveal" data-form novalidate>
+            <div class="field">
+              <label for="f-nombre">Nombre y apellido</label>
+              <input type="text" id="f-nombre" name="nombre" autocomplete="name" required>
+              <p class="field-error" data-error-for="f-nombre" hidden></p>
+            </div>
+
+            <div class="field">
+              <label for="f-email">Email</label>
+              <input type="email" id="f-email" name="email" autocomplete="email" required>
+              <p class="field-error" data-error-for="f-email" hidden></p>
+            </div>
+
+            <div class="field">
+              <label for="f-empresa">Empresa <span class="optional">(opcional)</span></label>
+              <input type="text" id="f-empresa" name="empresa" autocomplete="organization">
+            </div>
+
+            <div class="field">
+              <label for="f-mensaje">¿Qué proceso te está costando tiempo?</label>
+              <textarea id="f-mensaje" name="mensaje" rows="5" required></textarea>
+              <p class="field-error" data-error-for="f-mensaje" hidden></p>
+            </div>
+
+            <button class="btn btn-primary btn-lg btn-block" type="submit">Enviar consulta</button>
+
+            <!-- Estado del envío. Mientras no haya email cargado en lib/manifest.js el
+                 sitio NO promete un envío que no ejecuta: lo dice y ofrece alternativas.
+                 Al cargar contact.email, el formulario pasa a abrir el cliente de correo
+                 con todo prellenado. -->
+            <p class="form-status" data-form-status role="status" aria-live="polite"></p>
+          </form>
+
+          <aside class="contact-direct">
+            <h3 class="contact-direct-title">O escribinos directo</h3>
+
+            <ul class="contact-list">
+              <li class="contact-item">
+                <span class="contact-label mono">Email</span>
+                <span data-contact-email><a class="contact-value" href="mailto:cygprocesos@gmail.com">cygprocesos@gmail.com</a></span>
+              </li>
+
+              <li class="contact-item">
+                <span class="contact-label mono">WhatsApp</span>
+                <span data-contact-whatsapp><a class="contact-value" href="https://wa.me/5491140294276" rel="noopener" target="_blank">+54 9 11 4029-4276</a></span>
+              </li>
+
+              <li class="contact-item">
+                <span class="contact-label mono">Dónde estamos</span>
+                <span class="contact-value">Buenos Aires, Argentina</span>
+              </li>
+
+              <!-- PENDIENTE: LinkedIn de Tomás · LinkedIn de Francisco · Instagram u otra web -->
+              <li class="contact-item">
+                <span class="contact-label mono">LinkedIn</span>
+                <span class="contact-value is-pending" data-contact-social>[PENDIENTE: LinkedIn de Tomás] · [PENDIENTE: LinkedIn de Francisco]</span>
+              </li>
+            </ul>
+
+            <p class="contact-note">
+              Trabajamos con PyMEs de cualquier rubro. No hace falta que sepas nada técnico para
+              la primera charla — de eso nos ocupamos nosotros.
+            </p>
+          </aside>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+
+      <div class="footer-brand">
+        <p class="footer-name">Costantini &amp; Gallotti</p>
+        <p class="footer-tag">Consultoría de procesos para PyMEs</p>
+      </div>
+
+      <nav class="footer-nav" aria-label="Navegación del pie de página">
+        <ul>
+          <li><a href="#servicios">Qué hacemos</a></li>
+          <li><a href="#proyectos">Proyectos</a></li>
+          <li><a href="#nosotros">Quiénes somos</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <ul class="footer-contact">
+        <li><span class="mono">Email</span> <span data-contact-email><a href="mailto:cygprocesos@gmail.com">cygprocesos@gmail.com</a></span></li>
+        <li><span class="mono">WhatsApp</span> <span data-contact-whatsapp><a href="https://wa.me/5491140294276" rel="noopener" target="_blank">+54 9 11 4029-4276</a></span></li>
+        <li><span class="mono">Dónde</span> <span>Buenos Aires, Argentina</span></li>
+      </ul>
+
+      <p class="footer-legal">
+        © <span data-year>2026</span> Costantini &amp; Gallotti. Todos los derechos reservados.
+      </p>
+    </div>
+  </footer>
+
+  <script defer src="lib/gsap.min.js"></script>
+  <script defer src="lib/ScrollTrigger.min.js"></script>
+  <script defer src="lib/manifest.js"></script>
+  <script defer src="main.js?v=20260904"></script>
+</body>
+</html>
