@@ -4,4 +4,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://costantiniygallotti.com/sitemap.xml
+Sitemap: https://cyg-procesos.vercel.app/sitemap.xml
